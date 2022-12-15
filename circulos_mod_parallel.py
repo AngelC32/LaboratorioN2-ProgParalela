@@ -1,6 +1,8 @@
+from multiprocessing import Process, Pool
 import array 
 import math
 import os
+from in_circle import in_circle, test
 
 
 def writePPM(red, green, blue, width, height, filename):
@@ -19,8 +21,8 @@ def writePPM(red, green, blue, width, height, filename):
 def comprobar_pixel(oldPixel,newPixel):
     return oldPixel ^ newPixel
 
-def in_circle(Cx,Cy,x,y,r):
- return ((Cx-x)**2 + (Cy-y)**2) <= (r**2)
+#def in_circle(Cx,Cy,x,y,r):
+ #return ((Cx-x)**2 + (Cy-y)**2) <= (r**2)
 
 
 def cuadro_inicial(width, height):
