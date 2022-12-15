@@ -1,7 +1,7 @@
 import array 
 import math
 import os
-from in_circle import in_circle, test, draw_canvas
+from in_circle import draw_canvas,draw_circle
 
 
 def writePPM(red, green, blue, width, height, filename):
@@ -17,13 +17,6 @@ def writePPM(red, green, blue, width, height, filename):
         f.write(bytearray(ppm_header, 'ascii'))
         image.tofile(f)
 
-def comprobar_pixel(oldPixel,newPixel):
-    return oldPixel ^ newPixel
-
-#def in_circle(Cx,Cy,x,y,r):
- #return ((Cx-x)**2 + (Cy-y)**2) <= (r**2)
-
-
 def cuadro_inicial(width, height):
     red = []
     green=[]
@@ -36,7 +29,7 @@ def cuadro_inicial(width, height):
 
 
 
-def draw_circle(circulo, cuadro, width, height):
+""" def draw_circle(circulo, cuadro, width, height):
     red = cuadro[0]
     green = cuadro[1]
     blue = cuadro[2]
@@ -57,7 +50,7 @@ def draw_circle(circulo, cuadro, width, height):
                 green[index]=comprobar_pixel(green[index],color_green)
                 blue[index]=comprobar_pixel(blue[index],color_blue)
 
-    cuadro = [red, green, blue]
+    cuadro = [red, green, blue] """
     
 if __name__ == "__main__":
     input=open("input")
@@ -73,8 +66,9 @@ if __name__ == "__main__":
         
         linea=input.readline()
         circulo=linea[:len(linea)-1].split(" ")
-        
-        draw_circle(circulo, cuadro, width, height)
+        circulo_int=[int(i) for i in circulo]
+        #draw_circle(array.array("i",circulo_int), array.array("i",cuadro[0]),array.array("i",cuadro[1]),array.array("i",cuadro[2]), width, height)
+        draw_circle(array.array("i",circulo_int),cuadro,width,height)
 
     writePPM(cuadro[0], cuadro[1], cuadro[2], width, height, "salida")
     
