@@ -17,7 +17,7 @@ def draw_circle(array.array circulo,array.array red_canal,array.array green_cana
     cdef int w=width
     cdef int index
     for i in range(h):
-        for j in range(h):
+        for j in range(w):
             if(in_circle(eje_X,eje_Y,i,j,radio)):
                 index = j+i*width
                 red_canal.data.as_ints[index]=comprobar_pixel(red_canal.data.as_ints[index],color_red)

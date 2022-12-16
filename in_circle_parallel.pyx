@@ -19,7 +19,8 @@ def draw_circle(array.array circulo, cuadro, int width, int height):
     cdef int h=height
     cdef int w=width
     cdef int index
-    for i in range(h):
+    #for i in range(h):
+    for i in prange(h, nogil=True):
         for j in range(w):
             if(in_circle(eje_X,eje_Y,i,j,radio)):
                 index = j+i*width
@@ -28,11 +29,11 @@ def draw_circle(array.array circulo, cuadro, int width, int height):
                 blue[index]=comprobar_pixel(blue[index],color_blue)
     
     cuadro=[red,green,blue]
-cdef int comprobar_pixel(int oldPixel,int newPixel):
+cdef int comprobar_pixel(int oldPixel,int newPixel)nogil:
     return oldPixel ^ newPixel
 
 
-cdef int in_circle( int Cent_x,  int Cent_y , int coord_x,  int coord_y,  int radio):
+cdef int in_circle( int Cent_x,  int Cent_y , int coord_x,  int coord_y,  int radio)nogil:
     cdef  int x = Cent_x
     cdef  int y = Cent_y
     cdef  int Cx = coord_x
