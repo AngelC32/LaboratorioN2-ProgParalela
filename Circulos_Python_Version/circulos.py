@@ -19,10 +19,7 @@ def comprobar_pixel(oldPixel,newPixel):
     return oldPixel ^ newPixel
 
 def in_circle(Cx,Cy,x,y,r):
-    if((math.pow((abs(Cx-x)),2) + math.pow(abs(Cy-y),2)) <= (math.pow(r,2))):
-        return True
-    else:
-        return False
+    return (math.pow((Cx-x),2) + math.pow(Cy-y,2)) <= (math.pow(r,2))
 
 def draw_canvas(width, height):
     red = []
