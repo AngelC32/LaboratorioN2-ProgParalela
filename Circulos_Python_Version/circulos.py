@@ -24,7 +24,7 @@ def in_circle(Cx,Cy,x,y,r):
     else:
         return False
 
-def cuadro_inicial(width, height):
+def draw_canvas(width, height):
     red = []
     green=[]
     blue=[]
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     width = 1024
     height = 960
-    cuadro = cuadro_inicial(width, height)
+    cuadro = draw_canvas(width, height)
 
     for i in range(n_circulos):
         
