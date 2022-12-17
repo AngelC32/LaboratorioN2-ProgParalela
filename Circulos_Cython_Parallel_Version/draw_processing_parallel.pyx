@@ -3,10 +3,7 @@ from cython cimport boundscheck
 from cython.parallel import prange
 
 @boundscheck(False)
-#def draw_circle(array.array circulo, red,green,blue, int width, int height):
 def draw_circle(array.array circulo, cuadro, int width, int height):
-    #cdef int[:] circulo_convert=circulo
-    #circulo=[ejex,ejey,radio,red,green,blue]
     cdef int eje_Y=circulo.data.as_ints[0]
     cdef int eje_X=circulo.data.as_ints[1]
     cdef int radio=circulo.data.as_ints[2]
@@ -20,7 +17,6 @@ def draw_circle(array.array circulo, cuadro, int width, int height):
     cdef int h=height
     cdef int w=width
     cdef int index
-    #for i in range(h):
     for i in prange(h, nogil=True):
         for j in range(w):
             if(in_circle(eje_X,eje_Y,i,j,radio)):
@@ -40,8 +36,6 @@ cdef int in_circle( int Cent_x,  int Cent_y , int coord_x,  int coord_y,  int ra
     cdef  int Cx = coord_x
     cdef  int Cy = coord_y
     cdef  int r = radio
-   # cdef  bool result =  ((Cx-x)**2 + (Cy-y)**2) <= (r**2)
-    #return result
     if ((Cx-x)**2 + (Cy-y)**2) <= (r**2):
         return 1
     return 0

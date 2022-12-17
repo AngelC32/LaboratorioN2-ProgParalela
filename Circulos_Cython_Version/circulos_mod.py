@@ -1,6 +1,6 @@
 import array 
 import math
-from in_circle import draw_canvas,draw_circle
+from draw_processing import draw_canvas,draw_circle
 
 
 def writePPM(red, green, blue, width, height, filename):

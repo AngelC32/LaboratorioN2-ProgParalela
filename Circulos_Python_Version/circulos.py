@@ -49,7 +49,7 @@ def draw_circle(circulo, cuadro, width, height):
 
     for i in range(height):
         for j in range(width):
-            if(in_circle(eje_X-1,eje_Y-1,i,j,radio)):
+            if(in_circle(eje_X,eje_Y,i,j,radio)):
                 index = j+i*width
                 red[index]=comprobar_pixel(red[index],color_red)
                 green[index]=comprobar_pixel(green[index],color_green)

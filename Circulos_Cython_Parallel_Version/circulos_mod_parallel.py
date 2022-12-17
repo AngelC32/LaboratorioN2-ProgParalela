@@ -1,7 +1,6 @@
 import array 
 import math
-from in_circle_parallel import draw_canvas,draw_circle
-
+from draw_processing_parallel import draw_canvas,draw_circle
 
 def writePPM(red, green, blue, width, height, filename):
     ppm_header = f'P6 {width} {height} {255}\n'
