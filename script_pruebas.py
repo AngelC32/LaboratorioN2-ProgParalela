@@ -20,7 +20,7 @@ csvfile.close()
 lista_Circulos_Python=[]
 print("Obteniendo Tiempos de 'Circulos_Python' ")
 for i in range(num_of_process):
-    proceso = subprocess.run(['python', 'Circulos_Python_Version/circulos.py'], 
+    proceso = subprocess.run(['python3', 'Circulos_Python_Version/circulos.py'], 
                             capture_output=True, 
                             text=True)
     salto= proceso .stdout.find("\n")
@@ -36,7 +36,7 @@ sleep(ss_delay)
 lista_Circulos_Cython=[]
 print("Obteniendo Tiempo de 'Circulos_Cython' ")
 for i in range(num_of_process):
-    proceso = subprocess.run(['python', 'Circulos_Cython_Version/circulos_mod.py'], 
+    proceso = subprocess.run(['python3', 'Circulos_Cython_Version/circulos_mod.py'], 
                             capture_output=True, 
                             text=True)
     salto= proceso .stdout.find("\n")
@@ -52,7 +52,7 @@ sleep(ss_delay)
 lista_Circulos_Cython_Parallel=[]
 print("Obteniendo Tiempo de 'Circulos_Cython_Parallel' ")
 for i in range(num_of_process):
-    proceso = subprocess.run(['python', 'Circulos_Cython_Parallel_Version/circulos_mod_parallel.py'], 
+    proceso = subprocess.run(['python3', 'Circulos_Cython_Parallel_Version/circulos_mod_parallel.py'], 
                             capture_output=True, 
                             text=True)
     salto= proceso .stdout.find("\n")
