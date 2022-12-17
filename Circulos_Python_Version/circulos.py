@@ -1,6 +1,7 @@
 import array 
 import math
 import os
+import time
 
 def writePPM(red, green, blue, width, height, filename):
     ppm_header = f'P6 {width} {height} {255}\n'
@@ -62,6 +63,8 @@ if __name__ == "__main__":
     height = 960
     cuadro = draw_canvas(width, height)
 
+    start = time.time()
+
     for i in range(n_circulos):
         
         linea=input.readline()
@@ -69,6 +72,11 @@ if __name__ == "__main__":
         
         draw_circle(circulo, cuadro, width, height)
 
+    end = time.time()
+    elapsed = end - start
+
+    print(elapsed)
+
     writePPM(cuadro[0], cuadro[1], cuadro[2], width, height, "salida")
-    
+
     input.close()
