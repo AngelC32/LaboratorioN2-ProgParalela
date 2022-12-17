@@ -1,5 +1,6 @@
 from cpython cimport array
 from cython cimport boundscheck
+from cython.parallel import prange
 
 @boundscheck(False)
 #def draw_circle(array.array circulo, red,green,blue, int width, int height):
@@ -64,7 +65,7 @@ def draw_canvas( unsigned int width, unsigned int height ):
     green= array.clone(template_array, size, zero=False)
     blue= array.clone(template_array, size, zero=False)
     
-    for i in range(size):
+    for i in prange(size, nogil=True):
        red.data.as_ints[i]=0
        green.data.as_ints[i]=0
        blue.data.as_ints[i]=0
